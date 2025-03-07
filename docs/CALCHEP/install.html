@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta6 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Install</TITLE>
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+
+</HEAD>
+
+<BODY >
+
+<!--Navigation Panel-->
+<A  HREF="../calchep.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="CalcHEP WWW"
+SRC="up.png"></A>
+<!--End of Navigation Panel-->
+<P>
+
+<!--Table of Contents-->
+
+<STRONG>Subsections</STRONG>
+<OL>
+<LI><A NAME="tex2html11"
+  HREF="install.html#SECTION000210">How to unpack codes</A>
+<LI><A NAME="tex2html12"
+  HREF="install.html#SECTION000220">Compilation procedure</A>
+<LI><A NAME="tex2html13"
+  HREF="install.html#SECTION000230">User installation and start of
+CalcHEP  session</A>
+<LI><A NAME="tex2html13"
+  HREF="install.html#SECTION000240"> Possible problems </A>
+<LI><A NAME="tex2html13"
+  HREF="install.html#SECTION000250"> Model installation </A>
+
+</OL>
+<!--End of Table of Contents-->
+<P>
+
+
+<H2><A NAME="SECTION000210"></A>
+             <A NAME="unpark"></A>
+<BR>
+1 How to unpack the codes
+</H2> 
+The name of the  received file which you have copied  from the CalcHEP WWW 
+page   should be 
+<P>
+<TT>calchep_2.4.#.tgz </TT>
+<BR> where # - denotes the number of release
+<P>
+Unpack this file by 
+
+<P>
+<TT>tar -xzf calchep_2.4.#.tgz </TT>
+<BR>
+or
+<BR> 
+<TT> mv calchep_2.4.#.tgz calchep_2.4.#.tar.gz 
+<BR>gunzip calchep_2.4.#.tar.gz
+<BR> tar -xvf calchep_2.3.#.tar
+</TT> 
+<P>
+As a result a directory  'calchep_2.4.#'  should be created.This directory contains  source codes  of the
+CalcHEP package for UNIX platforms. 
+  
+<H2><A NAME="SECTION000220"></A>  
+             <A NAME="compilation"></A>
+<BR>
+2 Compilation procedure
+</H2>          In order to compile the CalcHEP  source code you need a <I>C</I>&nbsp; compiler
+with the X11 graphics library.  The compilation  is launched by the
+
+<P>
+<TT>gmake</TT>  or <TT>make</TT>
+<P>
+command started from the CalcHEP root directory. Indeed <TT>gmake</TT> options are 
+needed. But if <TT>gmake</TT> is absence, it as rule means that your 
+<TT>make</TT> works like <TT>gmake</TT>.
+
+<P>
+If the  <I>C</I>  compiler and X11 files  are detected and the  sources 
+are compiled successfully  you will see the message:
+<P>
+<TT>"CalcHEP can be started."
+</TT>
+<P>
+Otherwise  the corresponding error message comes out.
+See 
+<A NAME="tex2html13"
+  HREF="install.html#SECTION000240"> below </A>
+ a discussion of possible problems.
+
+<P>
+The files in the CalcHEP root directory will be
+used only for reading and execution during the user session. 
+It provides one with a possibility to have one CalcHEP root
+directory for several users. 
+
+<P>
+Each user has to create his own directory to work with CalcHEP. 
+See an instruction for the user installation  in the next section.
+
+
+<H2><A NAME="SECTION000230"></A>     
+             <A NAME="u-install"></A>
+<BR>
+
+ 3 User installation and start of the CalcHEP session
+</H2>          
+<P>
+The CalcHEP root directory is not intended to start  a session.
+For this  purpose  the user has to prepare a special  working directory. 
+A few working directories may be created for  various tasks and by different
+users. 
+
+<P>
+The user working directory is prepared by the command <BR>
+<TT> ./mkWORKdir </TT><I>  dir_Name </I> <BR>
+launched from the CalcHEP root directory. For example <BR>
+<TT> ./mkWORKdir ~/WORK </TT> <BR>
+
+As a result  the  following sub-directories and files
+should appear in your <I>WORK</I> directory:
+<BR>  <TT>models/&nbsp;&nbsp;&nbsp;   tmp/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  results/
+
+&nbsp;&nbsp;&nbsp;&nbsp;bin/</TT>
+<BR>  <TT>calchep&nbsp;&nbsp;&nbsp;   calchep.ini   </TT>
+
+<P>
+The directory   <I>models</I> is used for  files which describe models 
+of particle interactions. The directory  <I>tmp</I> is created for temporal
+files.  The directory <I>results</I> is  assigned for a CalcHEP&nbsp; output.
+<I>bin</I> is a symbolic link to CalcHEP executables.
+<P>
+To start a CalcHEP&nbsp; session  you should issue a command
+<BR> <TT>./calchep</TT>
+
+<P>
+The <I>calchep.ini</I> file allows  to choose an 
+appropriate text font for the CalcHEP&nbsp; window, select the  color or colorless
+mode for the window and also switch on/off the sound signal. The syntax of  
+this file is self-explanatory.
+
+
+<H2><A NAME="SECTION000240">
+Possible problems </A>
+</H2> 
+
+<P>
+At first step  <I>make_all</I>  lauches <I>getflags</I>. 
+The target of this program is generation of  files 
+ <I>FlagsForSh</I> and <I>FlagsForMake</I>  which contains names 
+of C and Fortran compilers and  compiler flags.   
+ If <I>FlagsForSh</I> is absent, it is generated autmatically depending 
+on Unix platform.  Otherwise  <I>getflags</I>  checks the flags 
+written in  <I>FlagsForSh</I>. Thus in case of problem user has 
+to correct <I>FlagsForSh</I> and start  <I>make_all</I>  or
+<I>getflags</I> again.   <I>FlagsForMake</I> contains the same 
+flags but for usage in Makefiles. It is corrected automatically. 
+<P>
+To use CalcHEP in graphic interface mode one should have installed <br>
+<TT>   libX11-devel </TT>  for Fedora/Scientific, Darwin(MAC) <br>
+<TT>    libX11-dev  </TT>   for Ubuntu/Debian <br>
+<TT>   xorg-x11-devel </TT> for SUSE  <br>
+If the package is installed, one should see X11 header files in directory <TT>/usr/include/X11</TT> <br>
+
+
+<H2><A NAME="SECTION000250">
+Model installation </A>
+</H2>
+                                                                                
+<P>
+ CalcHEP contains only SM. Other models should be installed 
+indepedently.
+To install new model the user has to
+<BR>
+a) download the corresponding <TT>  MODEL.tgz</TT> file.
+<BR>
+b) unpack it; In result directory <TT>MODEL</TT> with CalcHEP model files and
+   codes for external functions will be generated.
+<BR>
+c) If you don't dispose  <TT>MODEL</TT> in CalcHEP directory, improve
+   definition of CALCHEP variable in <TT>MODEL/Makefile</TT>. It has to
+   show the path to CalcHEP directory  which is used to dowload the file
+   with compiler flags.
+<BR>
+d) read README file attached to the model and make the corresponding changes
+   in Makefile if it needs.
+<BR>
+e) launch  'gmake' inside <TT>MODEL</TT>. If 'gmake' is absent try 'make'.
+   The Makefile is written for 'gmake', but in modern platforms sometimes
+   'make' presents the 'gmake' command.  In results of compilation you
+    should get the mLib.a library.
+<BR>
+f) To add a new model to the list of models for your working sessions use
+the
+   "IMPORT OF MODELS" menu function. It asks you to define the directory
+    where model is disposed:
+<BR>
+      <TT>  Dir= 'path to MODEL'/models </TT>
+<BR>
+    For expample, in case of MSSM disposed directly inside CalcHEP
+<BR>
+      <TT>    Dir= $CALCHEP/MSSM/models </TT>
+
+
+</BODY>
+</HTML>

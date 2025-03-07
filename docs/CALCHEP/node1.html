@@ -1,0 +1,210 @@
+<HTML>
+<HEAD>
+<TITLE>Main facilities</TITLE>
+
+<LINK REL="next" HREF="node2.html">
+<LINK REL="previous" HREF="../calchep.html">
+<LINK REL="up" HREF="../calchep.html">
+<LINK REL="next" HREF="node2.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+
+<A  HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="History"
+SRC="next.png"></A>
+
+<A  HREF="../calchep.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="CalcHEP WWW"
+SRC="up.png"></A>
+
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00010000000000000000"></A> 
+             <A NAME="introduction"></A>
+Main facilities.
+</H1>       
+<P>
+CalcHEP&nbsp; is a package for automatic calculations of elementary particle
+decay and collision properties in the lowest order of perturbation theory
+(the tree approximation).  The main idea prescribed into the CalcHEP&nbsp; is to
+make available passing on from the Lagrangian to the final distributions
+effectively with a high level of automation.  
+Other packages  created to solve  a similar problem
+are  
+<I>FeynArts/FeynCalc</I>[<A
+ HREF="node4.html#FeynArt">1</A>], <I>GRACE</I>[<A
+ HREF="node4.html#GRACE">2</A>], <I>HELAS</I>[<A
+ HREF="node4.html#HELAS">3</A>], 
+<I>MADGRAPH</I>[<A
+ HREF="node4.html#MADGRAPH">4</A>]. See also the review [<A
+ HREF="node4.html#Harlander">5</A>].
+
+<P>
+CalcHEP&nbsp; is a menu-driven system with the context help. The notations
+used in CalcHEP&nbsp; are very similar to those used in particle physics. 
+
+<P>
+The present version contains the
+ Standard Model (SU(3)xSU(2)xU(1))  and its Minimal Sypersymmetry 
+extension (MSSM). 
+ The user can change particle interaction and model
+parameters. It is also possible to create new  models of particle
+interaction.
+
+<P>
+In the present version polarizations are not taken into account.
+Averaging over initial and summing over final polarizations are performed
+automatically. 
+
+<P>
+The CalcHEP&nbsp; package consists of two parts: symbolic and numerical ones. 
+The symbolic part  generats 
+  codes for a squared matrix
+element which   are used in the numerical calculations.
+
+<P>
+The symbolic part of CalcHEP&nbsp; lets the user:
+
+<P>
+<UL>
+<LI> select a model of particle interaction and implement some
+changes in the model. In paricular one can choose the package for
+solution of RGE equations in case of SUGRA models;
+
+</LI><P><LI>
+
+   coose a gauge. Physical gauge and t'Hooft-Feynman one are available.
+</LI><P><LI>
+select a process by specifying incoming and outgoing particles for
+the decays of 1->2, ..., 1->5   types and the collisions of
+2->2, ..., 2->4  types;
+
+<P>
+</LI>
+<LI>generate  Feynman diagrams,  display them, and create the
+corresponding L<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X&nbsp; output;
+
+<P>
+</LI>
+<LI>exclude some diagrams;
+
+<P>
+</LI>
+<LI>generate and display squared Feynman diagrams;
+
+<P>
+</LI>
+<LI>calculate analytical expressions corresponding to squared diagrams
+   by using the fast built-in symbolic calculator;
+
+<P>
+</LI>
+<LI>save symbolic results corresponding to the squared diagrams
+   calculated in the <I>Reduce</I>&nbsp; and <I>Mathematica</I>&nbsp;
+codes for  further
+   symbolic manipulations;
+
+<P>
+</LI>
+<LI>generate the optimized <I>C</I>&nbsp;  codes for the squared matrix
+   elements for further numerical calculations;
+
+<P>
+</LI>
+<LI> launch the compilation of the generated codes and start the
+corresponding numerical session;
+
+<P></LI><LI>  generates libraries of matrix elements for other 
+packages.
+
+</UL>
+
+<P>
+The numerical part of CalcHEP&nbsp; offers to:
+
+<P>
+
+<UL>
+<LI>convolute  the squared matrix element  with structure functions and
+beam spectra. <I>CTEQ</I>&nbsp; PDFLIB, CTEQ, MRST  parton
+   distribution functions, the  ISR and  Beamstrahlung spectra of electrons,
+   the laser photon spectrum,
+   and the Weizsaecker-Williams photon structure functions are
+   available;
+
+<P>
+</LI>
+<LI>modify physical parameters ( incoming momenta, couplings, 
+masses etc.)
+   involved in the process;
+                                                                           
+<P>
+</LI>
+<LI>select the scale parameter for evaluation of the QCD coupling constant and
+   parton structure functions;
+
+<P>
+</LI>
+<LI> calculate Higgses widths and decay rates taking into account
+hight order QCD loop corrections.
+
+<P>
+</LI>
+<LI>apply LEP mass limits on MSSM spectrum, as well as
+calculate b -> s gamma, B_s -> mu-mu , and (g-2) constraints.
+
+<P>
+</LI>
+<LI>apply various kinematic cuts.
+
+<P>
+</LI>
+<LI>define the kinematic scheme (phase space parameterization) for
+   effective Monte Carlo integration;
+
+<P>
+</LI>
+<LI>introduce a phase space mapping in order to 
+smooth sharp peaks of a squared matrix element and structure functions;
+
+<P>
+</LI>
+<LI>perform  a   Monte Carlo phase space  integration by <I>Vegas</I>;
+
+
+<P>
+</LI>
+<LI>generate partonic level events and direct them to <I>PYTHIA</I>; 
+
+<P>
+</LI>
+<LI>display distributions in various kinematic variables;
+
+<P>
+</LI>
+<LI>create the graphical and L<SUP><SMALL>A</SMALL></SUP>T<SMALL>E</SMALL>X&nbsp; outputs for histograms.
+</LI>
+</UL>
+
+<P>
+The current version is accompanied  with different {\it batch}
+programs which allows to performs all calculations in non-interactive
+regime.
+
+<HR>
+<!--Navigation Panel-->
+
+<A  HREF="node2.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="History"
+SRC="next.png"></A>
+
+<A  HREF="../calchep.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="CalcHEP WWW"
+SRC="up.png"></A>
+
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

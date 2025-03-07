@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 99.2beta6 (1.42)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>History and personal contributions</TITLE>
+<META NAME="description" CONTENT="History and contributions">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v99.2beta6">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+
+<LINK REL="next" HREF="node3.html">
+<LINK REL="previous" HREF="node1.html">
+<LINK REL="up" HREF="https://theory.sinp.msu.ru/~pukhov/calchep.html> 
+<LINK REL="next" HREF="node3.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+
+<A  HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="Acknowledgments"
+SRC="next.png"></A>
+
+<A  HREF="../calchep.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="CompHEP WWW"
+SRC="up.png"></A>
+
+<A  HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="Main facilities"
+SRC="prev.png"></A>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00020000000000000000">
+History.</A>
+</H1>     
+
+<P> CalcHEP_3.9.1 (22.06.2024) &nbsp <A href="calchep_3.9.1.tgz"> CODE  </A> &nbsp;&nbsp;
+<P> CalcHEP_3.8.9 (25.03.2021) &nbsp <A href="calchep_3.8.9.tgz"> CODE  </A> &nbsp;&nbsp;
+<P> CalcHEP_3.8.7 (21.12.2020) &nbsp <A href="calchep_3.8.7.tgz"> CODE  </A> &nbsp;&nbsp;
+<P> CalcHEP_3.8.5 (10.07.2020) &nbsp <A href="calchep_3.8.5.tgz"> CODE  </A> &nbsp;&nbsp;
+<P> CalcHEP_3.8.4 (27.05.2020) &nbsp <A href="calchep_3.8.4.tgz"> CODE  </A> &nbsp;&nbsp;
+<P> CalcHEP_3.8.3 (25.03.2020) &nbsp <A href="calchep_3.8.3.tgz"> CODE  </A> &nbsp;&nbsp;
+<P> CalcHEP_3.8.2 (10.03.2020) &nbsp <A href="calchep_3.8.2.tgz"> CODE  </A> &nbsp;&nbsp;
+
+<P> CalcHEP_3.7.5 (28.02.2019) &nbsp <A href="calchep_3.7.5.tgz"> CODE  </A> &nbsp;&nbsp;
+
+<P> CalcHEP_3.7.4(08.12.1018)  &nbsp <A href="calchep_3.7.4.tgz"> CODE  </A> &nbsp;&nbsp;
+<P>1) Form output. Bugs fixed : symb/out/form_out.c
+<P>2) Detection of duplicate names in var#.mdl and func#.mdl. Bug is fixed : symb/read_mdl.c 
+<P>3) Decay branching is sorted now.
+<P>4) aPrintF works correctly even if "long double" or "_Quad" is chosen for real numbers.
+   aPrintF routine is intended  to write input file for spectrum  calculator from within 
+      func#.mld. It is similar to fprintf function and its first arguments defines format of
+      reading of other arguments.
+         For real argument one of  flags E,e,G,g,f,F has to  be used, which corresponds to double
+         numerical type.
+            Now when CalCHEP performs numerical calculations with other types, earch real argument
+            of aPrintF is automatically
+               converted to type double: X => (double)(X). : symb/out/reader_c.c
+<P>5) Polarization of incoming  photon  in case when second incoming particle is
+               massive. Bug is fixed:
+                   symb/symbolic.c                  
+<P>6) External matrix element. 
+      We have realized  a possibility to use  CalcHEP numerical integrator with
+      external matrix element.
+       We assume that the uses has compiled  some processes in CalCHEP but  would
+      like to replace CalcHEP squared matrix
+      element on his own one.  See instructions in
+      c_source/num/usrSQME_dummy.c 
+
+<P> CalcHEP_3.7.3 &nbsp <A href="calchep_3.7.1.tgz"> CODE  </A> &nbsp;&nbsp;
+<P> 1) Two bugs were fixed in calchep batch (run_batch file):
+ i) the link of shared libraries is updated for the case of Mac OS 
+ (fixing the problem which was appearing for models with new version of automatic
+ calculation of the Higgs width.);
+ ii) the problem of batch  crashing because of the  absence of extlib*.mdl is
+ fixed.
+ 
+<P> 2)  The new version allows to calculate processes with polarized incoming
+ fermion, the results were cross checked against  WIZARD.
+ 
+<P> 3) Running of the widths is implemented: now we have the propagator in the
+ following form
+ 1/(s-m^2 +i*w*sqrt(Theta(s)) in comparison to the old one 1/(s-m^2) + i*m*w). 
+ In case of t-channel propagator we still have an option to switch off(default)/on
+ the width in the t-channel, but now an  imaginary part of t-channel  propagator
+ will be zero until the  real pole appears in t-channel.
+ 
+ <P>4) we have fixed bug in function evaluating  cuts   in case of multi-threads
+ calculation. It was caused by presence of static parameter in one of the
+ function.
+ 
+ <P>5) Plot functions were slightly improved. 
+ 
+ <P>6) The maximal length of the format string  for  printF (the  function used for
+ model file interface like SLHA one)  is increased from 200 to 500 symbols.
+ 
+ <P> 7) The global environment variable nParProc is introduced to set the number of
+  parallel processes used in symbolic and  numerical calculations via
+  threads and fork in CalcHEP sessions.
+  
+ <P> 8) We have switched to the  "long double" type for numerical calculation as a
+  default. To return to standard "double" type one has to uncomment  the first
+  line in  file include/nTYpe.h 
+  ( #define _LONG_   ).   
+  
+ <P> 9) Examples of  batch files for the calchep batch session  are updated. See
+  files 
+  batch_file_1-4 in the util folder.
+  
+ <P>10) We give an  example  Jet Matching in CalcHEP via Pythia.
+  In directory utile/JetMatchingCalcHEP we present the respective  batch files and
+  Pythia files
+  with detailed README. Thanks for to Stefan Prestel for numerous discussions and
+  explanations.
+  
+
+
+<P> CalcHEP_3.7.1 &nbsp <A href="calchep_3.7.1.tgz"> CODE  </A> &nbsp;&nbsp;
+
+<P> CalcHEP_3.7.1 &nbsp <A href="calchep_3.7.1.tgz"> CODE  </A> &nbsp;&nbsp;
+<P> CalcHEP_3.7.1 &nbsp <A href="calchep_3.7.1.tgz"> CODE  </A> &nbsp;&nbsp;
+<P> CalcHEP_3.7   &nbsp <A href="calchep_3.7.tgz"> CODE  </A> &nbsp;&nbsp;
+<P> CalcHEP_3.6.29 &nbsp <A href="calchep_3.6.29.tgz"> CODE  </A> &nbsp;&nbsp;
+<P> CalcHEP_3.6.27 &nbsp <A href="calchep_3.6.27.tgz"> CODE  </A> &nbsp;&nbsp;
+<P> CalcHEP_3.6.25 &nbsp <A href="calchep_3.6.25.tgz"> CODE  </A> &nbsp;&nbsp;
+<P> CalcHEP_3.6.24 &nbsp <A href="calchep_3.6.24.tgz"> CODE  </A> &nbsp;&nbsp;
+<P> CalcHEP_3.6.23 &nbsp <A href="calchep_3.6.23.tgz"> CODE  </A> &nbsp;&nbsp;
+<P> CalcHEP_3.6.22 &nbsp <A href="calchep_3.6.22.tgz"> CODE  </A> &nbsp;&nbsp;
+<P> CalcHEP_3.4.7  &nbsp <A href="calchep_3.4.7.tgz"> CODE  </A> &nbsp;&nbsp;
+<P> CalcHEP_3.4.4  &nbsp <A href="calchep_3.4.4.tgz"> CODE  </A> &nbsp;&nbsp;
+<P> CalcHEP_3.4.3  &nbsp <A href="calchep_3.4.3.tgz"> CODE  </A> &nbsp;&nbsp;
+<P> CalcHEP_3.4.cpc &nbsp<A href="calchep_3.4.cpc.tgz"> CODE  </A> &nbsp;&nbsp;
+<HR>
+
+<!--Navigation Panel-->
+
+<A  HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="Acknowledgments"
+SRC="next.png"></A>
+
+<A  HREF="../calchep.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="CompHEP WWW"
+SRC="up.png"></A>
+
+<A  HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="Main facilities"
+SRC="prev.png"></A>
+
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>
